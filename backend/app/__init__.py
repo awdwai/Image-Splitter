@@ -1,0 +1,1 @@
+"""AnimAI backend application package."""

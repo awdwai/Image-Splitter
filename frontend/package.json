@@ -1,0 +1,12 @@
+{
+  "name": "animai-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Example AnimAI web client (skeleton — Vite app added in a later phase)",
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"Vite app not scaffolded yet — see frontend/README.md\"",
+    "build": "echo \"Vite app not scaffolded yet\"",
+    "preview": "echo \"Vite app not scaffolded yet\""
+  }
+}
