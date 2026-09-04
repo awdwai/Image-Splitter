@@ -29,7 +29,14 @@ See [`backend/README.md`](backend/README.md) and [`backend/docs/integration.md`]
 
 A Vite React app that talks to the backend via `VITE_API_BASE_URL`. No AI/CV logic lives here — it only calls the API.
 
-See [`frontend/README.md`](frontend/README.md).
+```bash
+cd frontend
+copy .env.example .env          # or cp — optional
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`. See [`frontend/README.md`](frontend/README.md).
 
 ## License
 

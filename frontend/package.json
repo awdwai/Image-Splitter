@@ -2,11 +2,23 @@
   "name": "animai-frontend",
   "private": true,
   "version": "0.1.0",
-  "description": "Example AnimAI web client (skeleton — Vite app added in a later phase)",
+  "description": "Example AnimAI web client — talks to the backend API only",
   "type": "module",
   "scripts": {
-    "dev": "echo \"Vite app not scaffolded yet — see frontend/README.md\"",
-    "build": "echo \"Vite app not scaffolded yet\"",
-    "preview": "echo \"Vite app not scaffolded yet\""
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "tsc -b --pretty false"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.3"
   }
 }
