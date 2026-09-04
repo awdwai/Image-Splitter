@@ -7,6 +7,21 @@
 | **Backend** | [`backend/`](backend/) | Reusable FastAPI API — the primary product |
 | **Frontend** | [`frontend/`](frontend/) | One example web client that consumes the API |
 
+## Windows quick start
+
+Double-click or run from a command prompt at the repo root:
+
+| Script | What it does |
+|--------|----------------|
+| [`start.bat`](start.bat) | Sets up deps if needed, then opens backend + frontend in two new windows |
+| [`start-backend.bat`](start-backend.bat) | Backend only (API /docs) — optional port: `start-backend.bat 8001` |
+| [`start-frontend.bat`](start-frontend.bat) | Frontend only — optional API URL: `start-frontend.bat http://localhost:8001` |
+
+If port **8000** is already in use, the scripts try **8001** and print a clear note (they do not kill other processes).
+
+- Frontend: http://localhost:5173  
+- API docs: http://localhost:8000/docs (or `:8001` if that fallback was used)
+
 ## Products at a glance
 
 ### Backend (reusable API)
