@@ -62,6 +62,17 @@ frontend/
 | `npm run preview` | Preview production build |
 | `npm run lint` | TypeScript check only |
 
+## Docker
+
+```bash
+# From repo root (builds frontend with VITE_API_BASE_URL → localhost:8000)
+docker compose up --build
+
+# Frontend image alone (pass a browser-reachable API URL)
+docker build -t animai-frontend --build-arg VITE_API_BASE_URL=http://localhost:8000 ./frontend
+docker run --rm -p 5173:80 animai-frontend
+```
+
 ## Backend
 
 See [`../backend/README.md`](../backend/README.md) and OpenAPI at `http://localhost:8000/docs`.

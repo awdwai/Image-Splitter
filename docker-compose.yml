@@ -1,0 +1,39 @@
+# Optional paired run of AnimAI backend + example frontend.
+# Backend remains fully runnable alone (see backend/README.md).
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      ANIMAI_HOST: "0.0.0.0"
+      ANIMAI_PORT: "8000"
+      # Allow Vite (dev) and compose frontend (nginx on :5173 mapped)
+      ANIMAI_CORS_ORIGINS: "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173"
+      ANIMAI_DATA_DIR: "/app/data"
+      ANIMAI_API_KEY: ""
+    volumes:
+      - animai-data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Browser calls the published backend port on the host
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  animai-data:

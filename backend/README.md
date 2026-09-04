@@ -97,6 +97,17 @@ curl -s http://localhost:8000/api/v1/jobs/JOB_ID/results
 
 More curl / Python / JS examples: [`docs/integration.md`](docs/integration.md).
 
+## Docker
+
+```bash
+# From repo root
+docker build -t animai-backend ./backend
+docker run --rm -p 8000:8000 animai-backend
+
+# Or with the example frontend
+docker compose up --build
+```
+
 ## GPU / real models (future)
 
 This scaffold ships stub providers only. Real SAM 2 / detector / pose weights will plug into `app/providers/` behind the same public schemas — no client API break expected.

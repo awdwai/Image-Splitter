@@ -38,6 +38,26 @@ npm run dev
 
 Open `http://localhost:5173`. See [`frontend/README.md`](frontend/README.md).
 
+## Docker (optional)
+
+Run both products together, or build/run the backend image alone.
+
+```bash
+# Both services (backend :8000, frontend :5173 → nginx)
+docker compose up --build
+
+# Backend only
+docker build -t animai-backend ./backend
+docker run --rm -p 8000:8000 animai-backend
+```
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `VITE_API_BASE_URL` | `http://localhost:8000` | Backend URL baked into the frontend build (browser-reachable) |
+| `FRONTEND_PORT` | `5173` | Host port for the frontend container |
+
+Backend stays independent: local `uvicorn`, its own `Dockerfile`, or compose without the frontend service.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
