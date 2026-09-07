@@ -1,3 +1,4 @@
+# WIP
 # AnimAI (Image-Splitter)
 
 **AnimAI** is an AI image-decomposition platform. This repo contains two products:
